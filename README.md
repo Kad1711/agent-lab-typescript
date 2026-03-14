@@ -38,3 +38,5 @@ npm run build
 ```
 
 Deploys automatically to GitHub Pages on push to `main`.
+## Live Demo
+https://kad1711.github.io/agent-lab-typescript/
