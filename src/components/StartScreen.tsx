@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 interface StartScreenProps {
   onStart: () => void;
   theme: string;
@@ -14,6 +16,13 @@ const themes = [
 ];
 
 export function StartScreen({ onStart, theme, setTheme, mode, setGameMode }: StartScreenProps) {
+  const navigate = useNavigate();
+
+  const handleLaunch = () => {
+    onStart();
+    navigate('/game');
+  };
+
   return (
     <div className="min-h-full flex items-center justify-center p-6 bg-[radial-gradient(circle_at_50%_20%,_rgba(5,196,107,0.25),_transparent_45%),_radial-gradient(circle_at_80%_80%,_rgba(255,198,0,0.14),_transparent_45%)] backdrop-blur-sm">
       <div className="w-full max-w-xl rounded-2xl border border-cyan-600/30 bg-slate-900/60 shadow-[0_0_20px_rgba(0,255,159,0.35)] p-8">
@@ -73,7 +82,7 @@ export function StartScreen({ onStart, theme, setTheme, mode, setGameMode }: Sta
         </div>
 
         <button
-          onClick={onStart}
+          onClick={handleLaunch}
           className="w-full rounded-lg bg-gradient-to-r from-[#00ffa1] to-[#04c97f] py-3 text-lg font-bold text-slate-900 shadow-[0_12px_25px_rgba(0,255,159,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,255,159,0.65)]"
         >
           Launch Social Ops
