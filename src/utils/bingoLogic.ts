@@ -1,4 +1,4 @@
-import { questions, FREE_SPACE } from '../data/questions';
+import { FREE_SPACE, getQuestionsForTheme } from '../data/questions';
 import type { BingoSquareData, BingoLine } from '../types';
 
 // Re-export types for convenience
@@ -22,8 +22,9 @@ function shuffleArray<T>(array: T[]): T[] {
 /**
  * Generate a new 5x5 bingo board
  */
-export function generateBoard(): BingoSquareData[] {
-  const shuffledQuestions = shuffleArray(questions).slice(0, 24);
+export function generateBoard(theme?: string): BingoSquareData[] {
+  const sourceQuestions = getQuestionsForTheme(theme);
+  const shuffledQuestions = shuffleArray(sourceQuestions).slice(0, 24);
   const board: BingoSquareData[] = [];
 
   let questionIndex = 0;

@@ -6,6 +6,7 @@ import {
   getWinningSquareIds,
   type BingoSquareData,
 } from './bingoLogic';
+import { getQuestionsForTheme } from '../data/questions';
 
 describe('bingoLogic', () => {
   describe('generateBoard', () => {
@@ -64,6 +65,20 @@ describe('bingoLogic', () => {
       // At least verify structure is correct
       expect(texts1).toHaveLength(24);
       expect(texts2).toHaveLength(24);
+    });
+
+    it('should generate a board using the tech-life theme', () => {
+      const board = generateBoard('tech-life');
+      expect(board).toHaveLength(25);
+      expect(board[12].isFreeSpace).toBe(true);
+      const texts = board.filter((square) => !square.isFreeSpace).map((square) => square.text);
+      expect(texts.length).toBe(24);
+      expect(getQuestionsForTheme('tech-life').includes(texts[0])).toBe(true);
+    });
+
+    it('getQuestionsForTheme returns default for unknown theme', () => {
+      const questions = getQuestionsForTheme('unknown-theme');
+      expect(questions).toHaveLength(40);
     });
   });
 

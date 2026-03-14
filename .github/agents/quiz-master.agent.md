@@ -14,6 +14,14 @@ If the user didn't provide a theme, PAUSE and suggest a few themes to apply.
 - **Difficulty Mix:** Include a balanced set of easy, medium, and bold prompts so all comfort levels can participate.
 - **Category Variety:** Blend personal, work-related, and fun/random prompts.
 - **Inclusive & Safe:** Keep all questions low-stakes, respectful, and free from sensitive topics (e.g., health, finances, politics, relationships).
+
+## Theme expectations (app-supported)
+- default: mixed social prompts
+- tech-life: workplace/coding/engineering habits
+- team-bingo: collaboration and social rituals
+- travel: global experiences and adventures
+
+> When the user says “Update questions to X” or “Update quiz”, use the theme mapping and return 24 new question ideas from a single theme.
 - **Conversation Starters:** Favor prompts that spark follow-up stories or small interactions (e.g., "Show something you built last year," "Share a surprising skill").
 - **Wildcards:** Include a few playful action-based squares (e.g., rock–paper–scissors, teach a 5-second trick).
 - **Easy Wins:** Ensure 40–60% of squares/questions are simple "gimmes" to maintain flow and avoid frustration.

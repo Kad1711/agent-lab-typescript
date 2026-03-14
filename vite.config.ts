@@ -5,8 +5,11 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // Auto-detect base path from environment (GitHub Actions sets VITE_REPO_NAME)
-  base: process.env.VITE_REPO_NAME ? `/${process.env.VITE_REPO_NAME}/game/` : '/',
+  base: '/agent-lab-typescript/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
   test: {
     globals: true,
     environment: 'jsdom',
